@@ -1,0 +1,4 @@
+PRIO is not LL(1) PRIO :: TALLY.
+DIGIT is not LL(1): three -> drei, four -> vier, six -> xix
+LETTER is not LL(1) : letter aleph
+WHETHER: where -> vhere
