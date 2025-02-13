@@ -17,7 +17,6 @@ extern printstates(), printrules();			/* from earley	*/
 extern struct tree *makeftree();			/* from ftree	*/
 extern printftree();					/* from ftree	*/
 extern struct dictnode *lookupword();			/* from common	*/
-extern wrtime();					/* from common	*/
 extern freezeheap(), resetheap(), wrheap();		/* from heap	*/
 
 static bool readline(void);

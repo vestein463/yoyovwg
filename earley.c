@@ -10,9 +10,7 @@ extern uint debugbits;
 
 extern bool hnmatch(), eqhn();		/* from hnmatch */
 extern struct hyperrule *substrule();	/* from hnmatch */
-extern bool ispn();			/* from common	*/
-extern int hashval();			/* from common	*/
-extern dots();				/* from common	*/
+int hashval3(void *w1,void *w2,void *w3);
 
 static struct dictnode **wvec;
 static int wptr;
@@ -310,7 +308,7 @@ static struct stateset *newstateset(void)
       st -> bval == b )
 
 static struct state *addstate( struct stateset *sts, struct hyperrule *p, int j, int b, char *how)
-  { int hv = hashval(3, p, j, b);
+  { int hv = hashval3( p, (void*)j, (void*)b);
     struct state **zz = &sts -> hash[hv];
     struct state *z = *zz;
     struct state *st;

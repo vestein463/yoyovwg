@@ -5,9 +5,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-typedef void (*proc)();
-
-static proc format(char ch);
 static void spaces( int d, FILE *f);
 static void fwritea( struct hyperalt *alt, int d, FILE *f);
 static void fwriteb( bool b, int d, FILE *f);
@@ -38,7 +35,7 @@ int fprintf(FILE *restrict f, const char *restrict fmt, ...)
         return ret;
 }
 
-global int vfprintf( FILE *f, const char *s, va_list ap0)
+global int vfprintf( FILE *restrict f, const char *restrict s, va_list ap0)
   { int j = 0, k = 0;
     va_list ap;
     va_copy(ap, ap0);

@@ -8,10 +8,8 @@ extern struct hypernotion *emptypn;
 extern struct dictnode *ghead, *metalist;
 extern int linenum;
 
-extern initdictionary();				 /* from common */
+extern void initdictionary();				 /* from common */
 extern struct dictnode *newmetanotion(), *newterminal(); /* from common */
-extern error();						 /* from common */
-extern bool ispn();					 /* from common */
 
 static FILE *gfile;
 static enum symbol symb;

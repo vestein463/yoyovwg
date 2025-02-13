@@ -23,8 +23,7 @@ static bool xoption;		/* for printftree */
 extern FILE *poutfile;
 
 extern bool eqhn();		/* from hnmatch */
-extern int hashval();		/* from common	*/
-extern dots();			/* form common	*/
+int hashval2(void *w1,void *w2);
 
 static struct tree *makeft(struct state *,struct state *);
 static struct tree *ftdyad( int sy, struct tree *x1, struct tree *x2);
@@ -73,7 +72,7 @@ static struct tree *ftdyad( int sy, struct tree *x1, struct tree *x2)
   }
 
 static struct tree *ftnode( int sy, struct tree *x1, struct tree *x2, struct hypernotion *hn)
-  { int hv = hashval(2, x1, x2);
+  { int hv = hashval2(x1, x2);
     struct tree **head = &forest[sy][hv];
     struct tree *x = *head;
     until (x == NULL || eqtree(x, sy, x1, x2, hn)) x = x -> hlnk;

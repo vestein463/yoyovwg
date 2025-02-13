@@ -21,7 +21,6 @@ static bool sopt, fdopt;
 static char *fname;
 
 extern initheap();		/* from heap	  */
-extern initclock();		/* from common	  */
 extern readgrammar();		/* from readgr	  */
 extern checkmetasyntax();	/* from checkmeta */
 extern factorize();		/* from factorize */

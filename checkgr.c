@@ -11,8 +11,6 @@ extern int linenum;
 
 static bool again;	/* for computing closure, used in various places */
 
-extern void error();		/* from common	*/
-extern bool ispn();	/* from common	*/
 extern bool hnmatch();	/* from hnmatch */
 
 static void    findstarters(void);

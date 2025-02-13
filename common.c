@@ -1,6 +1,7 @@
 #include "vwg.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <assert.h>
 
 #define time_t long
 #include <sys/times.h>
@@ -103,6 +104,18 @@ static int timenow(void )
 
 #define MAXINT	   0x7fffffff
 #define HASHFACTOR 65599	/* should be a prime number */
+
+global int hashval3(void *w1,void *w2,void *w3)
+  {
+    uint sum = (((uint)w1 *HASHFACTOR) + (uint)w2) *HASHFACTOR + (uint)w3;
+    return (sum & MAXINT) % HASHSIZE;
+  }
+
+global int hashval2(void *w1,void *w2)
+  {
+    uint sum = ((uint)w1 *HASHFACTOR) + (uint)w2;
+    return (sum & MAXINT) % HASHSIZE;
+  }
 
 global int hashval( int n, word w1, w2, w3)
   { word *p = &w1;
