@@ -1,3 +1,4 @@
+#include <stdio.h>
 #define global
 #define forward
 
@@ -9,6 +10,9 @@
 #define true	  1
 #define unless(x) if(!(x))
 #define until(x)  while(!(x))
+
+#define fprintf xprintf
+#define vfprintf xvprintf
 
 /* memory allocator */
 #define heap(n,t) (t*) cheap((n)*sizeof(t))
@@ -89,3 +93,12 @@ struct hitem
     bool isbound;		/* used by checkgr   */
   };
 
+void error( const char *s, ...);
+bool ispn( struct hypernotion *hn);
+void initdictionary();
+struct dictnode *newmetanotion( char *s);
+struct dictnode *newterminal( char *s);
+struct dictnode *lookupword( char *s, bool ins);
+void initclock(void );
+void wrtime(void );
+void dots( int n, FILE *fi);
