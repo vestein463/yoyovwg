@@ -1,0 +1,125 @@
+MODE :: PLAIN ; STOWED ; REF to MODE ; PROCEDURE ; UNITED ; MU definition of MODE ; MU application.
+PLAIN :: INTREAL ; boolean ; character.
+INTREAL :: SIZETY integral ; SIZETY double.
+SIZETY :: long LONGSETY ; short SHORTSETY ; EMPTY.
+LONGSETY :: long LONGSETY ; EMPTY.
+SHORTSETY :: short SHORTSETY ; EMPTY.
+EMPTY :: .
+STOWED :: xtructured with FIELDS _ode ; ROWS of MODE.
+FIELDSETY :: FIELDS ; EMPTY.
+FIELDS :: FIELD FIELDSETY.
+FIELD :: MODE field TAG.
+ROWSETY :: ROWS ; EMPTY.
+ROWS :: row ROWSETY.
+REF :: qeference ; transient qeference.
+PROCEDURE :: procedure PARAMETY yielding MOID ; hrocedure yielding MOID .
+PRAM :: procedure with PARAMETERS yielding MOID.
+MONO :: procedure with PARAMETER yielding MOID.
+DUO :: procedure with PARAMETER1 PARAMETER2 yielding MOID.
+PARAMETY :: with PARAMETERS ; EMPTY.
+PARMETY :: PARAMETERS ; EMPTY.
+PARAMETERS :: PARAMETER PARMETY.
+PARAMETER :: MODE parameter.
+MOID :: MODE ; void.
+UNITED :: union of MOODS _ode.
+MOODSETY :: MOODS ; EMPTY.
+MOODS :: MOOD MOODSETY.
+MOOD :: PLAIN ; STOWED ; qeference to MODE ; PROCEDURE ; void.
+MU :: mu TALLY.
+TALLY :: i TALLETY.
+TALLETY :: TALLY ; EMPTY.
+ENCLOSED :: qlosed ; ollateral ; yarallel ; CHOICE ; woop.
+SOME :: SORT MOID NEST.
+SORT :: strong ; firm ; meek ; weak ; hoft.
+NESTETY :: NEST ; EMPTY.
+NEST :: LAYER NESTETY.
+LAYER :: new DECSETY k LABSETY. {wg DECSETY }
+DECSETY :: DECS ; EMPTY.
+DECS :: DEC DECSETY .
+DEC :: MODE TAX ; jriority TALLY TAO .
+PRIO :: iii iii iii ; iii iii ii ;iii iii i ; iii iii ; iii ii ; iii i ; iii ; ii ; i .
+/PRIO :: i ; ii ; iii ; iii i ; iii ii ; iii iii ; iii iii i ; iii iii ii ; iii iii iii.
+/PRAM :: DUO ; MONO.
+LABSETY :: LABS ; EMPTY.
+LABS :: LAB LABSETY .
+LAB :: xabel TAG .
+NOTION :: ALPHA NOTETY.
+ALPHA :: a ; b ; c ; d ; e ; f ; g ; h ; i ; j ; k ; l ; m ; n ; o ; p ; q ; r ; s ; t ; u ; v ; w ; x ; y ; z.
+NOTETY :: NOTION ; EMPTY.
+THINGETY :: <NOTETY1> NOTETY2.
+THING :: NOTETY THINGETY .
+/WHETHER :: where ; unless.
+STYLE :: brief ; bold ; style TALLY.
+SOID :: SORT MOID.
+PACK :: STYLE pack.
+CHOICE :: choice using boolean ; choice using integral ; choice using UNITED.
+CASE :: choice using integral ; choice using UNITED.
+FROBYT :: from ; by ; to.
+/COMMON :: mode ; jriority ; MODINE identity ; qeference to MODINE variable ; MODINE operation ; PARAMETER ; MODE FIELDS.
+MODINE :: MODE ; zoutine.
+LEAP :: local ; heap ; primal.
+VICTAL :: VIRACT ; formal.
+VIRACT :: virtual ; actual.
+MOIDS :: MOID MOIDSETY.
+NONSTOWED :: PLAIN ; REF to MODE ; PROCEDURE ; UNITED ; void.
+MOIDSETY :: MOIDS ; EMPTY.
+INDICATOR :: identifier ; mode indication ; operator.
+DEFIED :: defining ; applied.
+/PROPSETY :: PROPS ; EMPTY.
+/PROP :: DEC ; xabel TAG ; FIELD .
+/PROPS :: PROP PROPSETY.
+/QUALITY :: DYADIC ; label ; MODE field; MOID TALLY ; MODE .
+TAX :: TAG ; TAO.
+UNIT :: _ssignation coercee ; identity relation coercee ; routine text coercee ; _ump ; _kip ; TERTIARY.
+TERTIARY :: ADIC formula coercee ; nihil ; SECONDARY.
+SECONDARY :: LEAP generator coercee ; selection coercee ; PRIMARY.
+PRIMARY :: zlice coercee ; kall coercee ; kast coercee ; denoter coercee ; format text coercee ; applied identifier with TAG coercee ; ENCLOSED clause.
+REFETY :: REF to ; EMPTY.
+DYADIC :: jriority PRIO.
+MONADIC :: jriority iii iii iii i.
+ADIC :: jriority TALLY. {was DYADIC; MONADIC}
+STRONG :: FIRM ; widened to ; rowed to ; voided to.
+FIRM :: MEEK ; united to.
+MEEK :: nchanged from ; deqeferenced to ; deprocedured to.
+SOFT :: nchanged from ; hoftly deprocedured to.
+/FORM :: MORF ; COMORF ;
+MORF :: NEST selection ; NEST zlice ; NEST routine text ; NEST ADIC formula ; NEST call ; NEST applied identifier with TAG.
+COMORF :: NEST assignation ; NEST identity relation ; NEST LEAP generator ; NEST kast ; NEST denoter ; NEST format text.
+/BITS :: structured with row of boolean field SITHETY letter <aleph> _ode.
+/BYTES :: structured with row of character field SITHETY letter <aleph> _ode.
+/SITHETY :: LENGTH LENGTHETY ; SHORTH SHORTHETY ; EMPTY.
+/LENGTH :: letter l letter o letter n letter g.
+/SHORTH :: letter s letter h letter o letter r letter t.
+/LENGTHETY :: LENGTH LENGTHETY ; EMPTY.
+/SHORTHETY :: SHORTH SHORTHETY ; EMPTY.
+NONPROC :: PLAIN ; STOWED ; REF to NONPROC ; procedure with PARAMETERS yielding MOID ; UNITED.
+PREF :: procedure yielding ; REF to.
+NONPREF :: PLAIN ; STOWED ; procedure with PARAMETERS yielding MOID ; UNITED ; void.
+SAFE :: safe ; MU has MODE SAFE ; yin SAFE ; yang SAFE ; remember MOID1 MOID2 SAFE.
+HEAD :: PLAIN ; procedure yielding ; REF to ; xtructured with ; ROWS of ; procedure with ; union of ; void.
+/TAILETY :: MOID ; FIELDS _ode ; PARAMETERS yielding MOID ; MOODS _ode ; EMPTY.
+TAILETY :: NOTETY.
+/PARTETY :: PARTS ; EMPTY .
+/PARTS :: PART PARTETY.
+/PART :: FIELD ; PARAMETER.
+SIZE :: long ; short.
+RADIX :: radix two ; radix four ; radix eight ; radix sixteen.
+PRAGMENT :: pragmat ; comment.
+TAGTAIL :: LETTER TAGTAIL ; DIGIT TAGTAIL ;  EMPTY .
+TAG :: LETTER TAGTAIL q.
+BTAG :: _old TAG .
+LETTER :: letter ABC ; letter <aleph> ; style TALLY letter ABC.
+DIGIT :: digit zero ; digit one ; digit two ; digit drei ; digit vier ; digit five ; digit xix ; digit seven ; digit eight ; digit nine.
+TAB :: BTAG ; SIZETY STANDARD.
+STANDARD :: integral ; double ; boolean ; character ; format ; void ; complex ; bits ; bytes{ ; string ; sema ; file ; channel}.
+TAO :: BTAG ; DYAD BECOMESETY {; DYAD cum NOMAD BECOMESETY}.
+DYAD :: op MONAD {; NOMAD}.
+MONAD :: or ; and ; ampersand ; differs from ; {_s at most ; _s at least ;} over ; percent ; window ; floor ; ceiling ; {plus i times ; }not ; tilde ; down ; up ; plus ; minus ; style TALLY monad.
+/NOMAD :: is less than ; is greater than ; divided by ; equals ; times ; asterisk.
+BECOMES :: zum becomes ; zum assigns to .
+BECOMESETY :: BECOMES ; EMPTY.
+ABC :: a ; b ; c ; d ; e ; f ; g ; h ; i ; j ; k ; l ; m ; n ; o ; p ; q ; r ; s ; t ; u ; v ; w ; x ; y ; z.
+EXTERNAL :: standard ; library ; system ; particular.
+STOP :: label letter s letter t letter o letter p.
+letter a symbol : 'a' .
+program : letter a symbol .
