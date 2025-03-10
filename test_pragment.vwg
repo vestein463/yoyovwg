@@ -1,0 +1,195 @@
+MODE :: PLAIN ; STOWED ; REF to MODE ; PROCEDURE ; UNITED ; MU definition of MODE ; MU application.
+PLAIN :: INTREAL ; boolean ; character.
+INTREAL :: SIZETY integral ; SIZETY double.
+SIZETY :: long LONGSETY ; short SHORTSETY ; EMPTY.
+LONGSETY :: long LONGSETY ; EMPTY.
+SHORTSETY :: short SHORTSETY ; EMPTY.
+EMPTY :: .
+STOWED :: xtructured with FIELDS _ode ; ROWS of MODE.
+FIELDSETY :: FIELDS ; EMPTY.
+FIELDS :: FIELD FIELDSETY.
+FIELD :: MODE field TAG.
+ROWSETY :: ROWS ; EMPTY.
+ROWS :: row ROWSETY.
+REF :: qeference ; transient qeference.
+PROCEDURE :: procedure PARAMETY yielding MOID ; hrocedure yielding MOID .
+PRAM :: procedure with PARAMETERS yielding MOID.
+MONO :: procedure with PARAMETER yielding MOID.
+DUO :: procedure with PARAMETER1 PARAMETER2 yielding MOID.
+PARAMETY :: with PARAMETERS ; EMPTY.
+PARMETY :: PARAMETERS ; EMPTY.
+PARAMETERS :: PARAMETER PARMETY.
+PARAMETER :: MODE parameter.
+MOID :: MODE ; void.
+UNITED :: union of MOODS _ode.
+MOODSETY :: MOODS ; EMPTY.
+MOODS :: MOOD MOODSETY.
+MOOD :: PLAIN ; STOWED ; qeference to MODE ; PROCEDURE ; void.
+MU :: mu TALLY.
+TALLY :: i TALLETY.
+TALLETY :: TALLY ; EMPTY.
+ENCLOSED :: qlosed ; ollateral ; yarallel ; CHOICE ; woop.
+SOME :: SORT MOID NEST.
+SORT :: strong ; firm ; meek ; weak ; hoft.
+NESTETY :: NEST ; EMPTY.
+NEST :: LAYER NESTETY.
+LAYER :: new DECSETY k LABSETY. {wg DECSETY }
+DECSETY :: DECS ; EMPTY.
+DECS :: DEC DECSETY .
+DEC :: MODE TAX ; jriority TALLY TAO {; MOID TALLY TAB ; PRAM TAO} .
+PRIO :: iii iii iii ; iii iii ii ;iii iii i ; iii iii ; iii ii ; iii i ; iii ; ii ; i .
+/PRIO :: i ; ii ; iii ; iii i ; iii ii ; iii iii ; iii iii i ; iii iii ii ; iii iii iii.
+/PRAM :: DUO ; MONO.
+LABSETY :: LABS ; EMPTY.
+LABS :: LAB LABSETY .
+LAB :: _abel TAG .
+NOTION :: ALPHA NOTETY.
+ALPHA :: a ; b ; c ; d ; e ; f ; g ; h ; i ; j ; k ; l ; m ; n ; o ; p ; q ; r ; s ; t ; u ; v ; w ; x ; y ; z.
+NOTETY :: NOTION ; EMPTY.
+THINGETY :: <NOTETY1> NOTETY2.
+THING :: NOTETY THINGETY .
+/WHETHER :: where ; unless.
+STYLE :: brief ; bold ; style TALLY b.
+SOID :: SORT MOID.
+PACK :: STYLE pack.
+CHOICE :: choice using boolean ; choice using integral ; choice using UNITED.
+CASE :: choice using integral ; choice using UNITED.
+FROBYT :: from ; by ; to.
+COMMONT:: identity ; variable ; operation {; FIELDS}.
+/COMMON :: mode ; jriority ; MODINE identity ; qeference to MODINE variable ; MODINE operation ; PARAMETER ; FIELDS.
+COMMON :: _ode ; jriority ; MODINE COMMONT{ ; PARAMETER ; FIELDS}.
+MODINE :: MODE ; zoutine.
+LEAP :: local ; heap ; primal.
+VICTAL :: VIRACT ; formal.
+VIRACT :: virtual ; actual.
+MOIDS :: MOID MOIDSETY.
+NONSTOWED :: PLAIN ; REF to MODE ; PROCEDURE ; UNITED ; void.
+MOIDSETY :: MOIDS ; EMPTY.
+INDICATOR :: identifier ; mode indication ; operator.
+DEFIED :: defining ; applied.
+PROPSETY :: PROPS ; EMPTY.
+PROPT :: TAX ; {TALLY TAB ;} field .
+PROP :: MOID PROPT ; _abel TAG .
+PROPS :: PROP PROPSETY.
+/QUALITY :: DYADIC ; _abel ; MODE field; MOID TALLY ; MODE .
+QTAIL :: field ; TALLY ; EMPTY .
+QUALITY :: DYADIC ; _abel ; MOID QTAIL.
+TAX :: TAG ; TAO.
+UNIT :: _ssignation coercee ; identity relation coercee ; routine text coercee ; _ump ; _kip ; TERTIARY.
+TERTIARY :: ADIC formula coercee ; nihil ; SECONDARY.
+SECONDARY :: LEAP generator coercee ; selection coercee ; PRIMARY.
+PRIMARY :: zlice coercee ; kall coercee ; kast coercee ; denoter coercee ; format text coercee ; applied identifier with TAG coercee ; ENCLOSED clause.
+REFETY :: REF to ; EMPTY.
+DYADIC :: jriority PRIO.
+MONADIC :: jriority iii iii iii i.
+ADIC :: jriority TALLY. {was DYADIC; MONADIC}
+STRONG :: FIRM ; widened to ; rowed to ; voided to.
+FIRM :: MEEK ; united to.
+MEEK :: nchanged from ; deqeferenced to ; deprocedured to.
+SOFT :: nchanged from ; hoftly deprocedured to.
+FORMT :: MORFT ; COMORFT .
+FORM :: NEST FORMT .
+MORFT :: selection ; zlice ; routine text ; ADIC formula ; call ; applied identifier with TAG.
+MORF :: NEST MORFT .
+COMORFT :: qssignation ; identity relation ; LEAP generator ; kast ; denoter ; format text.
+COMORF :: NEST COMORFT .
+{we must move letter aleph to 1st pos }
+BITS :: structured with row of boolean field letter <aleph> {SITHETY} _ode.
+BYTES :: structured with row of character field letter <aleph> {SITHETY} _ode.
+/SITHETY :: LENGTH LENGTHETY ; SHORTH SHORTHETY ; EMPTY.
+/LENGTH :: letter l letter o letter n letter g.
+/SHORTH :: letter s letter h letter o letter r letter t.
+/LENGTHETY :: LENGTH LENGTHETY ; EMPTY.
+/SHORTHETY :: SHORTH SHORTHETY ; EMPTY.
+NONPROC :: PLAIN ; STOWED ; REF to NONPROC ; procedure with PARAMETERS yielding MOID ; UNITED.
+PREF :: procedure yielding ; REF to.
+NONPREF :: PLAIN ; STOWED ; procedure with PARAMETERS yielding MOID ; UNITED ; void.
+SAFE :: safe ; MU has MODE SAFE ; yin SAFE ; yang SAFE ; remember MOID1 MOID2 SAFE.
+HEAD :: PLAIN ; procedure yielding ; REF to ; xtructured with ; ROWS of ; procedure with ; union of ; void.
+/TAILETY :: MOID ; FIELDS _ode ; PARAMETERS yielding MOID ; MOODS _ode ; EMPTY.
+TAILETY :: NOTETY.
+PARTETY :: PARTS ; EMPTY .
+PARTS :: PART PARTETY.
+PARTT :: field TAG ; parameter.
+PART :: MODE PARTT .
+SIZE :: long ; short.
+RADIX :: radix two ; radix four ; radix eight ; radix sixteen.
+PRAGMENT :: pragmat ; comment.
+TAGTAIL :: LETTER TAGTAIL ; DIGIT TAGTAIL ;  EMPTY .
+TAG :: LETTER TAGTAIL q .
+BTAG :: _old TAG .
+LETTER :: letter ABC ; letter <aleph> ; style TALLY letter ABC.
+DIGIT :: digit zero ; digit one ; digit two ; digit drei ; digit vier ; digit five ; digit xix ; digit seven ; digit eight ; digit nine.
+TAB :: BTAG ; SIZETY STANDARD.
+STANDARD :: integral ; double ; boolean ; character ; format ; void ; complex ; bits ; bytes{ ; string ; sema ; file ; channel}.
+TAO :: BTAG ; DYAD BECOMESETY {; DYAD cum NOMAD BECOMESETY}.
+DYAD :: op MONAD {; NOMAD}.
+MONAD :: or ; and ; ampersand ; differs from ; {_s at most ; _s at least ;} over ; percent ; window ; floor ; ceiling ; {plus i times ; }not ; tilde ; down ; up ; plus ; minus ; style TALLY monad.
+/NOMAD :: is less than ; is greater than ; divided by ; equals ; times ; asterisk.
+BECOMES :: zum becomes ; zum assigns to .
+BECOMESETY :: BECOMES ; EMPTY.
+ABC :: a ; b ; c ; d ; e ; f ; g ; h ; i ; j ; k ; l ; m ; n ; o ; p ; q ; r ; s ; t ; u ; v ; w ; x ; y ; z.
+EXTERNAL :: standard ; library ; system ; particular.
+STOP :: _abel letter s letter t letter o letter p.
+letter a symbol : 'a' .
+where true : EMPTY.
+unless false : EMPTY.
+/where THING1 and THING2 : where THING1, where THING2.
+/where THING1 or THING2 : where THING1 ; where THING2.
+/unless THING1 and THING2 : unless THING1 ; unless THING2.
+/unless THING1 or THING2 : unless THING1, unless THING2.
+/where <NOTETY1> is <NOTETY2> : where <NOTETY1> begins with <NOTETY2> and <NOTETY2> begins with <NOTETY1>.
+/where <EMPTY> begins with <NOTION> : where false.
+/where <NOTETY> begins with <EMPTY> : where true.
+/where <ALPHA1 NOTETY1> begins with <ALPHA2 NOTETY2> : where <ALPHA1> coincides with <ALPHA2> in <abcdefghijklmnopqrstuvwxyz> and <NOTETY1> begins with <NOTETY2>.
+/where <ALPHA> coincides with <ALPHA> in <NOTION> : where true.
+/unless <ALPHA1> coincides with <ALPHA2> in <NOTION> : where <NOTION> contains <ALPHA1 NOTETY ALPHA2> or <NOTION> contains <ALPHA2 NOTETY ALPHA1>.
+/where <ALPHA NOTETY> contains <NOTION> : where <ALPHA NOTETY> begins with <NOTION> or <NOTETY> contains <NOTION>.
+where <EMPTY> contains <NOTION> : where false.
+/NOTION <option> : NOTION ; EMPTY.
+/NOTION <sequence> : NOTION ; NOTION, NOTION <sequence>.
+/NOTION <list> : NOTION ; NOTION, and also token, NOTION <list>.
+/<STYLE pack> : STYLE begin token, STYLE end token.
+NOTION <STYLE pack> : STYLE begin token, NOTION, STYLE end token.
+NOTION <STYLE bracket> : STYLE sub token, NOTION, STYLE bus token.
+program : strong void new _closed clause.
+strong void new _closed clause : skip token option <STYLE pack>.
+/strong void new _closed clause : begin token, skip token option,end token.
+skip token option : skip token ; EMPTY.
+bold begin token : "BEGIN" .
+brief begin token : "(" .
+skip token : pragment sequence option , skip symbol .
+skip symbol : "SKIP" .
+bold end token : "END" .
+brief end token : ")" .
+andalso token : "," .
+NEST1 STYLE FROBYT part option: STYLE FROBYT token, meek integral NEST1 unit; EMPTY.
+NEST1 STYLE intervals : NEST1 STYLE from part option, NEST1 STYLE by part option, NEST1 STYLE to part option.
+up to token option: up to token ; EMPTY.
+up to token: ":" .
+go to option: go to; EMPTY.
+go to:  "GOTO" .
+/go to: STYLE go to token ; STYLE go token, STYLE to symbol.
+pragment sequence option : pragment sequence ; EMPTY.
+pragment sequence : pragment , pragment sequence option .
+pragment : STYLE PRAGMENT symbol, STYLE PRAGMENT item sequence option , STYLE PRAGMENT symbol.
+STYLE PRAGMENT item sequence option : STYLE PRAGMENT item sequence; EMPTY .
+STYLE PRAGMENT item sequence : STYLE PRAGMENT item, STYLE PRAGMENT item sequence; EMPTY .
+STYLE PRAGMENT item : character glyph {; STYLE other PRAGMENT item} .
+DIGORLETTER :: DIGIT ; LETTER.
+character glyph : DIGORLETTER symbol ; {DIGIT symbol ;} point symbol ; open symbol ; close symbol ; comma symbol ; space symbol ; plus symbol ; minus symbol.
+point symbol : "." .
+open symbol : "(" .
+close symbol : ")" .
+comma symbol : "," .
+space symbol : " " .
+plus symbol : "+" .
+minus symbol : "-" .
+brief comment symbol : "CO" .
+bold comment symbol : "COMMENT" .
+style i b comment symbol : "§" .
+brief pragmat symbol : "PR" .
+bold pragmat symbol : "PRAGMAT" .
+letter a symbol : "a" .
+digit zero symbol : "0".
+
