@@ -36,13 +36,13 @@ NEST :: LAYER NESTETY.
 LAYER :: new DECSETY k LABSETY. {wg DECSETY }
 DECSETY :: DECS ; EMPTY.
 DECS :: DEC DECSETY .
-DEC :: MODE TAX ; jriority TALLY TAO .
+DEC :: MODE TAX ; jriority TALLY TAO {; MOID TALLY TAB ; PRAM TAO} .
 PRIO :: iii iii iii ; iii iii ii ;iii iii i ; iii iii ; iii ii ; iii i ; iii ; ii ; i .
 /PRIO :: i ; ii ; iii ; iii i ; iii ii ; iii iii ; iii iii i ; iii iii ii ; iii iii iii.
 /PRAM :: DUO ; MONO.
 LABSETY :: LABS ; EMPTY.
 LABS :: LAB LABSETY .
-LAB :: xabel TAG .
+LAB :: _abel TAG .
 NOTION :: ALPHA NOTETY.
 ALPHA :: a ; b ; c ; d ; e ; f ; g ; h ; i ; j ; k ; l ; m ; n ; o ; p ; q ; r ; s ; t ; u ; v ; w ; x ; y ; z.
 NOTETY :: NOTION ; EMPTY.
@@ -55,7 +55,9 @@ PACK :: STYLE pack.
 CHOICE :: choice using boolean ; choice using integral ; choice using UNITED.
 CASE :: choice using integral ; choice using UNITED.
 FROBYT :: from ; by ; to.
-/COMMON :: mode ; jriority ; MODINE identity ; qeference to MODINE variable ; MODINE operation ; PARAMETER ; MODE FIELDS.
+COMMONT:: identity ; variable ; operation {; FIELDS}.
+/COMMON :: mode ; jriority ; MODINE identity ; qeference to MODINE variable ; MODINE operation ; PARAMETER ; FIELDS.
+COMMON :: _ode ; jriority ; MODINE COMMONT{ ; PARAMETER ; FIELDS}.
 MODINE :: MODE ; zoutine.
 LEAP :: local ; heap ; primal.
 VICTAL :: VIRACT ; formal.
@@ -65,10 +67,13 @@ NONSTOWED :: PLAIN ; REF to MODE ; PROCEDURE ; UNITED ; void.
 MOIDSETY :: MOIDS ; EMPTY.
 INDICATOR :: identifier ; mode indication ; operator.
 DEFIED :: defining ; applied.
-/PROPSETY :: PROPS ; EMPTY.
-/PROP :: DEC ; xabel TAG ; FIELD .
-/PROPS :: PROP PROPSETY.
-/QUALITY :: DYADIC ; label ; MODE field; MOID TALLY ; MODE .
+PROPSETY :: PROPS ; EMPTY.
+PROPT :: TAX ; {TALLY TAB ;} field .
+PROP :: MOID PROPT ; _abel TAG .
+PROPS :: PROP PROPSETY.
+/QUALITY :: DYADIC ; _abel ; MODE field; MOID TALLY ; MODE .
+QTAIL :: field ; TALLY ; EMPTY .
+QUALITY :: DYADIC ; _abel ; MOID QTAIL.
 TAX :: TAG ; TAO.
 UNIT :: _ssignation coercee ; identity relation coercee ; routine text coercee ; _ump ; _kip ; TERTIARY.
 TERTIARY :: ADIC formula coercee ; nihil ; SECONDARY.
@@ -82,11 +87,15 @@ STRONG :: FIRM ; widened to ; rowed to ; voided to.
 FIRM :: MEEK ; united to.
 MEEK :: nchanged from ; deqeferenced to ; deprocedured to.
 SOFT :: nchanged from ; hoftly deprocedured to.
-/FORM :: MORF ; COMORF ;
-MORF :: NEST selection ; NEST zlice ; NEST routine text ; NEST ADIC formula ; NEST call ; NEST applied identifier with TAG.
-COMORF :: NEST assignation ; NEST identity relation ; NEST LEAP generator ; NEST kast ; NEST denoter ; NEST format text.
-/BITS :: structured with row of boolean field SITHETY letter <aleph> _ode.
-/BYTES :: structured with row of character field SITHETY letter <aleph> _ode.
+FORMT :: MORFT ; COMORFT .
+FORM :: NEST FORMT .
+MORFT :: selection ; zlice ; routine text ; ADIC formula ; call ; applied identifier with TAG.
+MORF :: NEST MORFT .
+COMORFT :: qssignation ; identity relation ; LEAP generator ; kast ; denoter ; format text.
+COMORF :: NEST COMORFT .
+{we must move letter aleph to 1st pos }
+BITS :: structured with row of boolean field letter <aleph> {SITHETY} _ode.
+BYTES :: structured with row of character field letter <aleph> {SITHETY} _ode.
 /SITHETY :: LENGTH LENGTHETY ; SHORTH SHORTHETY ; EMPTY.
 /LENGTH :: letter l letter o letter n letter g.
 /SHORTH :: letter s letter h letter o letter r letter t.
@@ -99,14 +108,15 @@ SAFE :: safe ; MU has MODE SAFE ; yin SAFE ; yang SAFE ; remember MOID1 MOID2 SA
 HEAD :: PLAIN ; procedure yielding ; REF to ; xtructured with ; ROWS of ; procedure with ; union of ; void.
 /TAILETY :: MOID ; FIELDS _ode ; PARAMETERS yielding MOID ; MOODS _ode ; EMPTY.
 TAILETY :: NOTETY.
-/PARTETY :: PARTS ; EMPTY .
-/PARTS :: PART PARTETY.
-/PART :: FIELD ; PARAMETER.
+PARTETY :: PARTS ; EMPTY .
+PARTS :: PART PARTETY.
+PARTT :: field TAG ; parameter.
+PART :: MODE PARTT .
 SIZE :: long ; short.
 RADIX :: radix two ; radix four ; radix eight ; radix sixteen.
 PRAGMENT :: pragmat ; comment.
 TAGTAIL :: LETTER TAGTAIL ; DIGIT TAGTAIL ;  EMPTY .
-TAG :: LETTER TAGTAIL q.
+TAG :: LETTER TAGTAIL q .
 BTAG :: _old TAG .
 LETTER :: letter ABC ; letter <aleph> ; style TALLY letter ABC.
 DIGIT :: digit zero ; digit one ; digit two ; digit drei ; digit vier ; digit five ; digit xix ; digit seven ; digit eight ; digit nine.
@@ -120,6 +130,4 @@ BECOMES :: zum becomes ; zum assigns to .
 BECOMESETY :: BECOMES ; EMPTY.
 ABC :: a ; b ; c ; d ; e ; f ; g ; h ; i ; j ; k ; l ; m ; n ; o ; p ; q ; r ; s ; t ; u ; v ; w ; x ; y ; z.
 EXTERNAL :: standard ; library ; system ; particular.
-STOP :: label letter s letter t letter o letter p.
-letter a symbol : 'a' .
-program : letter a symbol .
+STOP :: _abel letter s letter t letter o letter p.
