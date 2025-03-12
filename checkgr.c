@@ -1,8 +1,8 @@
 #include "vwg.h"
 #include <stdio.h>
 
-#define NULLBIT (1 << 31)
-#define STOPBIT (1 << 29)
+#define NULLBIT (1LL << 31)
+#define STOPBIT (1LL << 29)
 
 extern struct ruleset *hypersyntax;
 extern struct dictnode *metalist, *ghead;
@@ -34,14 +34,14 @@ static void addbxref( struct hyperrule *hr, struct hypernotion *hn);
 static void newxref( struct hyperrule *hr, struct ruleset **rsp);
 static bool supermatch( struct hypernotion *hn1, struct hypernotion *hn2);
 static bool possiblematch( struct hypernotion *hn1, struct hypernotion *hn2);
-static uint starters( struct hypernotion *hn, int k);
+static uint64 starters( struct hypernotion *hn, int k);
 static void deduceptype(void);
 static bool isrepr( struct hyperrule *hr);
 static void printtype( uint t);
 static int numssms( struct hypernotion *hn);
 static void check_lb( struct hyperrule *hr);
 static void check_rb( struct hyperrule *hr);
-static void addbits( uint b1, uint *bb2);
+static void addbits( uint64 b1, uint64 *bb2);
 
 global void checkgrammar()
   { findstarters();
@@ -66,7 +66,7 @@ static void findstarters(void )
 	      { struct hypernotion *hn;
 		struct dictnode *metavec[MAXSUBSTS];
 		int nmetas = 0;
-		int j; uint m;
+		int j; uint64 m;
 		hn = y -> hn;
 		linenum = hn -> lnum;
 		m = starters(hn, 0);
@@ -79,7 +79,7 @@ static void findstarters(void )
 			while (i < nmetas && metavec[i] != zj) i++;
 			if (i >= nmetas)
 			  { /* not yet seen in this hypernotion; record followers */
-			    uint mj = starters(hn, j+1);
+			    uint64 mj = starters(hn, j+1);
 			    addbits(mj & ~NULLBIT, &zj -> fol);
 			    if (mj & NULLBIT) addbits(z -> fol, &zj -> fol);
 			    if (nmetas < MAXSUBSTS) metavec[nmetas++] = zj;
@@ -94,7 +94,7 @@ static void findstarters(void )
     while (again);
   }
 
-static void addbits( uint b1, uint *bb2)
+static void addbits( uint64 b1, uint64 *bb2)
   { /* add bits b1 into b2 */
     if (b1 & ~*bb2)
       { *bb2 |= b1;
@@ -107,10 +107,10 @@ static void checkll1(void )
     for (z = metalist; z != NULL; z = z -> nxt)
       { unless (z == ghead)
 	  { int ln = linenum;
-	    uint m1 = 0, clash = 0;
+	    uint64 m1 = 0, clash = 0;
 	    struct metarhs *y;
 	    for (y = z -> rhs; y != NULL; y = y -> lnk)
-	      { struct hypernotion *hn; uint m2;
+	      { struct hypernotion *hn; uint64 m2;
 		hn = y -> hn;
 		linenum = hn -> lnum;
 		m2 = starters(hn, 0);
@@ -130,7 +130,7 @@ static void checklhsides(void )
   { int ln = linenum;
     struct ruleset *rs;
     for (rs = hypersyntax; rs != NULL; rs = rs -> lnk)
-      { struct hypernotion *hn; uint m;
+      { struct hypernotion *hn; uint64 m;
 	hn = rs -> hr -> lhs;
 	linenum = hn -> lnum;
 	m = starters(hn, 0);
@@ -376,15 +376,15 @@ static bool possiblematch( struct hypernotion *hn1, struct hypernotion *hn2)
     while (hd1[p1].sy == s_ssm && hd2[p2].sy == s_ssm && hd1[p1].it_s == hd2[p2].it_s) { p1++; p2++; }
     while (hd1[q1-1].sy == s_ssm && hd2[q2-1].sy == s_ssm && hd1[q1-1].it_s == hd2[q2-1].it_s) { q1--; q2--; }
     if ((hd1[p1].sy == s_meta || hd2[p2].sy == s_meta) && (hd1[q1-1].sy == s_meta || hd2[q2-1].sy == s_meta))
-      { uint mp = starters(hn1, p1) & starters(hn2, p2);
+      { uint64 mp = starters(hn1, p1) & starters(hn2, p2);
 	match = (mp != 0); /* probably! */
       }
     else match = false;
     return match;
   }
 
-static uint starters( struct hypernotion *hn, int k)
-  { uint m = 0;
+static uint64 starters( struct hypernotion *hn, int k)
+  { uint64 m = 0;
     if (hn -> hlen < 0) error("bug 1");
     else
       { bool allnull = true; int i;
@@ -392,12 +392,13 @@ static uint starters( struct hypernotion *hn, int k)
 	  { struct hitem *x = &hn -> hdef[i];
 	    if (x -> sy == s_ssm)
 	      { int c = x -> it_s;
-		int b = (c >= 'a' && c <= 'z') ? (c-'a') :
+		int b = (c < 64-32) ? (c+32) :
+		        (c >= 'a' && c <= 'z') ? (c-'a') :
 			(c == '<') ? 26 :
 			(c == '>') ? 27 :
 			(c == '_') ? 28 :
 			(c == '*') ? 29 : -1;
-		if (b >= 0) m |= (1 << b);
+		if (b >= 0) m |= (1LL << b);
 		else error("bug 2 (%c)", c);
 		allnull = false;
 	      }

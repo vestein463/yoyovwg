@@ -14,7 +14,7 @@ static void fwritee( struct state *st, int d, FILE *f);
 static void fwriteh( struct hypernotion *hn, int d, FILE *f);
 static void fwritem( struct metarhs *y, int d, FILE *f);
 static void fwrites( char *s, int d, FILE *f);
-static void fwritet( uint t, int d, FILE *f);
+static void fwritet( uint64 t, int d, FILE *f);
 static void fwritex( uint n, int d, FILE *f);
 
 static void writeneg( bool s, int n, int d, FILE *f);
@@ -58,7 +58,7 @@ global int vfprintf( FILE *restrict f, const char *restrict s, va_list ap0)
 	case 'h':   FWR(h,struct hypernotion *);
 	case 'm':   FWR(m,struct metarhs *);
 	case 's':   FWR(s,char*);
-	case 't':   FWR(t,uint);
+	case 't':   FWR(t,uint64);
 	case 'x':   FWR(x,uint);
       }
 	  }
@@ -134,7 +134,8 @@ static void wrhn( struct hypernotion *hn, FILE *f)
       { struct hitem *z = &hn -> hdef[k];
 	if (z -> sy == s_ssm)
 	  { if (k > n1 && sep) putc(' ', f);
-	    putc(z -> it_s, f);
+	    if( z -> it_s > 40) putc(z -> it_s, f);
+            else fprintf(f, "{}%s", z -> it_z -> str);
 	    sep = false; /* i.e. only if followed by a meta */
 	  }
 	if (z -> sy == s_meta)
@@ -162,9 +163,9 @@ static void fwrites( char *s, int d, FILE *f)
       }
   }
 
-static void fwritet( uint t, int d, FILE *f)
+static void fwritet( uint64 t, int d, FILE *f)
   { /* write LL(1) starters */
-    static char *tab = "abcdefghijklmnopqrstuvwxyz<>_*.@";   /* * is stopper; @ is null bit */
+    static char *tab = "abcdefghijklmnopqrstuvwxyz<>_*.@ABCDEFGHIJLMNOPQR";   /* * is stopper; @ is null bit */
     int k = 0;
     until (t == 0)
       { if (t & 1) putc(tab[k], f);

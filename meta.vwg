@@ -44,7 +44,7 @@ LABSETY :: LABS ; EMPTY.
 LABS :: LAB LABSETY .
 LAB :: _abel TAG .
 NOTION :: ALPHA NOTETY.
-ALPHA :: a ; b ; c ; d ; e ; f ; g ; h ; i ; j ; k ; l ; m ; n ; o ; p ; q ; r ; s ; t ; u ; v ; w ; x ; y ; z.
+ALPHA :: a ; b ; c ; d ; e ; f ; g ; h ; i ; j ; k ; l ; m ; n ; o ; p ; q ; r ; s ; t ; u ; v ; w ; x ; y ; z ; {}letter ; {}mode .
 NOTETY :: NOTION ; EMPTY.
 THINGETY :: <NOTETY1> NOTETY2.
 THING :: NOTETY THINGETY .
@@ -131,3 +131,4 @@ BECOMESETY :: BECOMES ; EMPTY.
 ABC :: a ; b ; c ; d ; e ; f ; g ; h ; i ; j ; k ; l ; m ; n ; o ; p ; q ; r ; s ; t ; u ; v ; w ; x ; y ; z.
 EXTERNAL :: standard ; library ; system ; particular.
 STOP :: _abel letter s letter t letter o letter p.
+program: EMPTY .

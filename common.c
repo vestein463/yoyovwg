@@ -12,6 +12,7 @@ extern struct dictnode *metalist;
 
 static struct dictnode *dictionary;
 static int starttime;
+global int n_proto = 0;
 
 forward struct dictnode *lookupword();
 static int timenow(void );
@@ -36,6 +37,18 @@ global struct dictnode *newmetanotion( char *s)
 	z -> rhs = NULL;
 	z -> nxt = metalist;
 	metalist = z;
+      }
+    return z;
+  }
+
+global struct dictnode *newproto( char *s)
+  { struct dictnode *z = lookupword(s, true);
+    unless (z -> flg & f_tkzed)
+      { /* it's a new protonotion */
+	z -> sta = n_proto ++;
+	if( n_proto > 64 -29 ) printf(" BUG17!");
+	z -> flg |= f_tkzed;
+	z -> rhs = NULL;
       }
     return z;
   }

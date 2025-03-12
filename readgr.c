@@ -10,6 +10,7 @@ extern int linenum;
 
 extern void initdictionary();				 /* from common */
 extern struct dictnode *newmetanotion(), *newterminal(); /* from common */
+extern struct dictnode *newproto( char *s);
 
 static FILE *gfile;
 static enum symbol symb;
@@ -27,6 +28,7 @@ static struct hypernotion *hypernotion();
 static void skipsymbols();
 static void nextsymb();
 static void metanotion();
+static uint protonotion();
 static void terminal();
 static void nextchar();
 static char *symbof(enum symbol sy);
@@ -297,6 +299,12 @@ l:  switch (ch)
 	    goto l;
 
 	case '{':
+            nextchar();
+            if(ch == '}') {
+              nextchar();
+              symb = s_ssm;
+              item_s = protonotion();
+              break; }
 	    do nextchar(); until (ch == '}' || ch == EOF);
 	    if (ch == '}') nextchar(); else error("mismatched { }");
 	    goto l;
@@ -355,7 +363,8 @@ l:  switch (ch)
       }
   }
 
-#define ismetach(c) ((c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
+inline int ismetach(int c)  { return (c >= 'A' && c <= 'Z') | (c >= '0' && c <= '9'); }
+inline int issmall(int c) { return (c >= 'a' && c <= 'z'); }
 
 static void metanotion()
   { char v[MAXNAMELEN+1];
@@ -368,6 +377,20 @@ static void metanotion()
     v[nc++] = '\0';
     symb = s_meta;
     item_z = newmetanotion(v);
+  }
+
+static uint protonotion()
+  { char v[MAXNAMELEN+1];
+    int nc = 0;
+    while (issmall(ch) && nc < MAXNAMELEN)
+      { v[nc++] = ch;
+	nextchar();
+      }
+    if (issmall(ch)) error("protonotion too long");
+    v[nc++] = '\0';
+    symb = s_ssm;
+    item_z = newproto(v);
+    return item_z -> sta;
   }
 
 static void terminal()

@@ -4,6 +4,7 @@
 
 #define word	  int
 #define uint	  unsigned int
+#define uint64	  unsigned long long
 #define uchar	  unsigned char
 #define bool	  int
 #define false	  0
@@ -33,12 +34,13 @@ enum symbol
 
 #define f_term	1	/* word is used as a terminal	*/
 #define f_meta	2	/* word is used as a metanotion */
+#define f_tkzed	4	/* word is used as a protonotion */
 
 struct dictnode
   { struct dictnode *lft, *rgt, *nxt;
     uchar flg;
     struct metarhs *rhs;	/* for metanotions only	 */
-    uint sta, fol;		/* for metanotions only, used in checkgr */
+    uint64 sta, fol;		/* for metanotions only, used in checkgr */
     char *str;
   };
 
