@@ -96,6 +96,7 @@ struct hitem
   };
 
 void error( const char *s, ...);
+void warning( const char *s, ...);
 bool ispn( struct hypernotion *hn);
 void initdictionary();
 struct dictnode *newmetanotion( char *s);

@@ -477,7 +477,7 @@ static void checknotlrec(void )	/* check R4 */
 	  { bool allnull = true; int k;
 	    for (k=0; k < hr -> rhs -> rlen && allnull; k++)
 	      { struct hypernotion *rhn = hr -> rhs -> rdef[k];
-		if (inxrefset(hr, rhn -> xrefclo)) error("hyperrule ``%h'' is left-recursive [R4]", hr -> lhs);
+		if (inxrefset(hr, rhn -> xrefclo)) warning("hyperrule ``%h'' is left-recursive [R4]", hr -> lhs);
 		unless (rhn -> flags & hn_dnull) allnull = false;
 	      }
 	  }

@@ -90,6 +90,16 @@ global void error( const char *s, ...)
     anyerrors = true;
   }
 
+global void warning( const char *s, ...)
+  { fprintf(stderr, "*** ");
+    if (linenum >= 0) fprintf(stderr, "line %d: ", linenum);
+    va_list ap;
+    va_start(ap, s);
+    vfprintf(stderr, s, ap);
+    va_end(ap);
+    putc('\n', stderr);
+  }
+
 global void initclock(void )
   { starttime = timenow();
   }
