@@ -288,7 +288,7 @@ static void checkr3( struct hypernotion *rhn, struct hypernotion *lhn, struct hy
 	    unless (hx -> isbound) ok = false;
 	  }
       }
-    unless (ok) error("hyperrule ``%h'' is type L :: ``%h'' is type R [R3]", hlhs, lhn);
+    unless (ok) warning("hyperrule ``%h'' is type L :: ``%h'' is type R [R3]", hlhs, lhn);
   }
 
 static void makexrefclosure(void )

@@ -98,6 +98,7 @@ static prcontext( struct hypernotion *hn, int ptr, int end)
   { struct hypernotion pr;
     pr.hdef = &hn -> hdef[ptr];
     pr.hlen = end - ptr;
+    pr.flags = hn -> flags;
     fprintf(stdout,"   /%h/", &pr);
   }
 

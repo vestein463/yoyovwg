@@ -9,7 +9,7 @@ $me/bin/vwg:	$objlist
 		mv a.out vwg
 
 %.o:		vwg.h %.c
-		cc $opts -c -O $stem.c
+		cc $opts -c -O -g $stem.c
 
 earley.o:	states.h
 ftree.o:	states.h
