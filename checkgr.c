@@ -126,6 +126,13 @@ static void checkll1(void )
       }
   }
 
+global void writegrammar()
+  { 
+      struct ruleset *rs;
+      for (rs = hypersyntax; rs != NULL; rs = rs -> lnk) 
+      fprintf( stdout, "%h : %a .\n", rs -> hr -> lhs, rs -> hr -> rhs );
+  }
+
 static void checklhsides(void )
   { int ln = linenum;
     struct ruleset *rs;

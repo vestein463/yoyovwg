@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+extern char *protolist[32];
 static void spaces( int d, FILE *f);
 static void fwritea( struct hyperalt *alt, int d, FILE *f);
 static void fwriteb( bool b, int d, FILE *f);
@@ -134,7 +135,7 @@ static void wrhn( struct hypernotion *hn, FILE *f)
       { struct hitem *z = &hn -> hdef[k];
 	if (z -> sy == s_ssm)
 	  { if (k > n1 && sep) putc(' ', f);
-	    if( z -> it_s > 40) putc(z -> it_s, f);
+	    if( z -> it_s > 32) putc(z -> it_s, f);
             else fprintf(f, "{}%s", z -> it_z -> str);
 	    sep = false; /* i.e. only if followed by a meta */
 	  }
@@ -149,7 +150,7 @@ static void wrhn( struct hypernotion *hn, FILE *f)
 static void fwritem( struct metarhs *y, int d, FILE *f)
   { bool had = false;
     until (y == NULL)
-      { if (had) fprintf(stderr, "; ");
+      { if (had) fprintf(f, "; ");
 	fprintf(f, "%h", y -> hn);
 	y = y -> lnk; had = true;
       }
@@ -168,7 +169,8 @@ static void fwritet( uint64 t, int d, FILE *f)
     static char *tab = "abcdefghijklmnopqrstuvwxyz<>_*.@ABCDEFGHIJLMNOPQR";   /* * is stopper; @ is null bit */
     int k = 0;
     until (t == 0)
-      { if (t & 1) putc(tab[k], f);
+      { if (t & 1) { putc(tab[k], f);
+        if( k >= 32 ) fprintf(f, " /%s/ ", protolist[k-32] ); }
 	t >>= 1; k++;
       }
   }

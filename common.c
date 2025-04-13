@@ -9,6 +9,7 @@
 extern bool anyerrors;
 extern int linenum;
 extern struct dictnode *metalist;
+extern char *protolist[32];
 
 static struct dictnode *dictionary;
 static int starttime;
@@ -45,6 +46,7 @@ global struct dictnode *newproto( char *s)
   { struct dictnode *z = lookupword(s, true);
     unless (z -> flg & f_tkzed)
       { /* it's a new protonotion */
+	protolist[n_proto] = z -> str;
 	z -> sta = n_proto ++;
 	if( n_proto > 64 -29 ) printf(" BUG17!");
 	z -> flg |= f_tkzed;

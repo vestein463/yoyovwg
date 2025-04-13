@@ -1,6 +1,7 @@
 #include "vwg.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 //#include <unistd.h>
 //#include <internet.h>
 
@@ -9,29 +10,32 @@
 global FILE *pinfile, *poutfile;
 global struct ruleset *hypersyntax;
 global struct dictnode *metalist, *ghead;
+global char *protolist[32];
 global struct hyperrule *toplevelhr;
 global struct hypernotion *emptypn;
 global uint debugbits;
 global int linenum;
 global bool anyerrors;
+int fprintf(FILE *restrict f, const char *restrict fmt, ...);
 
 static int fdnum;
-static bool sopt, fdopt;
+static bool sopt, fdopt, xopt;
 //static struct tcpuser tuser;
 static char *fname;
 
-extern initheap();		/* from heap	  */
-extern readgrammar();		/* from readgr	  */
-extern checkmetasyntax();	/* from checkmeta */
-extern factorize();		/* from factorize */
-extern checkgrammar();		/* from checkgr	  */
-extern parse();			/* from parse	  */
-
+extern void initheap();		/* from heap	  */
+extern void readgrammar(const char *fn);		/* from readgr	  */
+extern void checkmetasyntax();	/* from checkmeta */
+extern void factorize();		/* from factorize */
+extern void checkgrammar();		/* from checkgr	  */
+extern void parse();			/* from parse	  */
+void writemetagr(void);
+void writegrammar(void);
 
 static void readcmdline(int argc, char *argv[]);
 static void usage();
 static void setpinpout(void );
-static void giveup(char *msg, ...);
+static void giveup(const char *msg, ...);
 global int main( int argc, char *argv[])
   { readcmdline(argc, argv);
     setpinpout();
@@ -43,7 +47,9 @@ global int main( int argc, char *argv[])
     checkmetasyntax();
     if (anyerrors) return(2);
     factorize();
+    if(xopt)  writemetagr(); 
     checkgrammar();
+    if(xopt) { writegrammar(); return 0; }
     if (anyerrors) return(2);
     fprintf(poutfile, "OK\n"); fflush(poutfile);
     parse();
@@ -70,6 +76,11 @@ static void readcmdline( int argc, char *argv[])
 	  { int ni = sscanf(&argv[ak][3], "%d", &fdnum);
 	    unless (ni == 1) usage();
 	    fdopt = true;
+	    ak++;
+	  }
+	else if (starts(argv[ak], "-x"))
+	  { 
+	    xopt = true;
 	    ak++;
 	  }
 	else usage();
@@ -103,8 +114,8 @@ static void setpinpout(void )
       }
   }
 
-static void giveup(msg) char *msg;
-  { fprintf(stderr, "vwg: %s\n");
+static void giveup(const char *msg,...)
+  { fprintf(stderr, "vwg: %s\n", msg);
     exit(1);
   }
 

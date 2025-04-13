@@ -7,6 +7,12 @@ extern struct dictnode *newmetanotion();	/* from common */
 
 static struct metarhs *definemeta( struct dictnode *y);
 
+global void writemetagr()
+  { struct dictnode *z;
+    for (z = metalist; z != NULL; z = z -> nxt)
+      fprintf( stdout, "%s :: %m .\n", z -> str, z -> rhs );
+  }
+
 global void checkmetasyntax()
   { struct dictnode *z;
     for (z = metalist; z != NULL; z = z -> nxt)

@@ -40,7 +40,7 @@ static addstopper(struct hypernotion *hn);
 static addhyperrule( struct hypernotion *lhs, struct hyperalt *rhs);
 static struct hypernotion *makehn(char *s);
 
-global void readgrammar( char *fn)
+global void readgrammar( const char *fn)
   { gfile = fopen(fn, "r");
     if (gfile == NULL)
       { fprintf(stderr, "vwg: can't open %s\n", fn);
